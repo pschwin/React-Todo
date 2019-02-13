@@ -30,40 +30,6 @@ const todoList = [
      }
 ];
 
-class TodoList extends React.Component{
-   constructor(){
-      super ();
-      this.state = {
-         todos: todos,
-         task: '',
-         id: '',
-         completed: ''
-      };
-   }
-
-   addToDo = event =>{
-      event.preventDefault();
-      console.log(event.target);
-
-      const newToDo ={
-         task: this.state.task,
-         id: this.state.id,
-         completed: this.state.completed
-      };
 
 
-   }
-
-   render() {
-      return(
-         <div>
-            <h1>To-Do List MVP</h1>
-            <div className="to-do-list">
-            this.state ..
-            </div>
-         </div>
-      )
-   }
-}
-
-export default todoList;
+export default TodoList;
