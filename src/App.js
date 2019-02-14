@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskForm from './components/TodoComponents/TaskForm';
 import TaskList from './components/TodoComponents/TaskList';
+import './App.css';
 
 const todos = [
   {
@@ -52,11 +53,28 @@ class App extends React.Component{
     });
   }
 
+  toggleTask = itemId =>{
+    this.setState({
+      todos: this.state.todos.map(item =>{
+        if(itemId === item.id){
+          return {...item, completed: !item.completed}
+        }
+
+        return item;
+      })
+    })
+  }
+
   render(){
     return(
-      <div>
+      <div className="app-container">
         <h1>MVP</h1>
-        <TaskList todos={this.state.todos} />
+        <div className="task-list">
+          <TaskList 
+          todos={this.state.todos} 
+          toggleTask={this.toggleTask}
+          />
+        </div>
         <TaskForm addItem = {this.addItem}/>
       </div>
     )
